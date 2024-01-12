@@ -1,4 +1,3 @@
-"use client"
 import Views from '@/components/Views'
 import React from 'react'
 
