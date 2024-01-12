@@ -1,4 +1,4 @@
-import { FC, useEffect } from 'react';
+import { FC } from 'react';
 import PageViews from './PageViews';
 
 interface BlogLayoutProps {
@@ -6,11 +6,19 @@ interface BlogLayoutProps {
 }
 
 const BlogLayout: FC<BlogLayoutProps> = ({ slug }) => {
-  useEffect(() => {
-    fetch(`/api/views/${slug}`, {
-      method: 'POST'
-    });
-  }, [slug]);
+    console.log(slug)
+  const fetchPageViews = async () => {
+    try {
+      await fetch(`/api/views/${slug}`, {
+        method: 'POST'
+      });
+    } catch (error) {
+      console.error('Error fetching page views:', error);
+    }
+  };
+
+  // Call the fetch function directly within the component body or in response to an event
+  fetchPageViews();
 
   return (
     <div>
