@@ -8,7 +8,8 @@ function Page() {
 
   const param = useParams()
   // console.log(param.id)
-const slug = param.id
+  const slug = param.id
+  console.log(slug)
   const fetcher = (url: string) => fetch(url).then((res) => res.json());
   const {
     data,
@@ -19,14 +20,14 @@ const slug = param.id
   if (error) {
     console.log(error.message)
   }
- console.log(data)
+  console.log(data)
   return (
     <div>
 
       <>
-      
-          <div>{data}</div>
 
+        <div>{slug}</div>
+        <BlogLayout slug={`${slug}`} />
       </>
     </div>
   )

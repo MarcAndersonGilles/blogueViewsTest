@@ -1,13 +1,11 @@
-import { NextResponse } from "next/server";
+import { NextResponse, NextRequest } from "next/server";
 
 
 export async function GET(req:NextResponse) {
-    return NextResponse.json(
-      { error: "Method not allowed" },
-      {
-        status: 405
-      }
-    );
+    return NextResponse.json('chocolat',{
+      status: 200
+    
+    });
   }
 
   export async function POST(req:NextResponse) {
