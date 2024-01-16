@@ -1,28 +1,35 @@
 "use client"
-import { supabase } from '@/supabase/supabaseClient'
-import React, {useEffect, useState} from 'react'
+import BlogLayout from '@/components/BlogLayout'
+import { useParams, } from 'next/navigation'
+import React, { useEffect } from 'react'
+import useSWR from 'swr'
 
 function Views() {
-  const [supabaseData, setSupabaseData] = useState<any[]>([])
 
-  // const testSupabase = async () => {
-  //   const { data, error } = await supabase
-  //     .from('pages')
-  //     .select('*')
-  //   console.log(data)
-  //   if(error){
-  //     console.log(error)
-  //   }
-  //   if(data){
-  //     setSupabaseData(data)
-  //   }
-   
-  // }
-  // useEffect(() => {
-  //   testSupabase()
-  // },[])
+  const param = useParams()
+  // console.log(param.id)
+  const slug = param.id
+  console.log(slug)
+  const fetcher = (url: string) => fetch(url).then((res) => res.json());
+  const {
+    data,
+    error,
+    isLoading,
+  } = useSWR<any>(`/api/views/${slug}`, fetcher);
+
+  if (error) {
+    console.log(error.message)
+  }
+  console.log(data)
   return (
-    <div>Blogue</div>
+    <div>
+
+      <>
+
+        <div>{slug}</div>
+        {data.total}
+      </>
+    </div>
   )
 }
 
