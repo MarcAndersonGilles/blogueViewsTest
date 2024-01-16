@@ -28,13 +28,7 @@ export async function GET(req: NextRequest, { params }: { params: { slug: string
 
 export async function POST(req: NextRequest, { params }: { params: { slug: string } }) {
   // const { query } = parse(req.url, true);
- 
   const slug = params.slug;
-  console.log(params);
-console.log(slug)
-  console.log(req.method);
-  console.log(req.url);
- 
   await SupabaseAdmin.rpc('increment_page_view', { page_slug: slug });
 
   return NextResponse.json({

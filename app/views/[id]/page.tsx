@@ -1,8 +1,7 @@
 
 import BlogLayout from '@/components/BlogLayout'
-import { useParams, } from 'next/navigation'
-import React, { useEffect } from 'react'
-import useSWR from 'swr'
+import React from 'react'
+
 
 function Page({params}:{params : {id:string}}) {
 
