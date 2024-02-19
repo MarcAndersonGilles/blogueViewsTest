@@ -33,6 +33,10 @@ const BlogLayout = async ({ slug }:{slug:string}) => {
     console.log(error)
   });
 
+  if(!BASE_API_URL){
+    return null
+  }
+
   return (
     <div>
       <div>
