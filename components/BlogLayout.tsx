@@ -14,7 +14,7 @@ const BlogLayout = async ({ slug }:{slug:string}) => {
   });
   var ip = null;
 
-  await fetch(`http://localhost:3000/api/iptest`, {
+  await fetch(`${process.env.VERCEL_URL}`, {
     method: 'GET',
   }).then((response) => {
     return response.json();
