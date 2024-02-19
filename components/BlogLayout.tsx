@@ -25,7 +25,9 @@ const BlogLayout = async ({ slug }:{slug:string}) => {
     console.log(ip)
 
   })
-  .catch((error) => {});
+  .catch((error): void => {
+    console.log(error)
+  });
 
   return (
     <div>
