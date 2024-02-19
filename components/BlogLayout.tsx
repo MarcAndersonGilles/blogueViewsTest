@@ -1,11 +1,11 @@
 "use server"
 import PageViews from './PageViews';
-
+import { BASE_API_URL } from '@/utils/utils-constants';
 
 
 const BlogLayout = async ({ slug }:{slug:string}) => {
  
-  await fetch(`http://localhost:3000/api/views/${slug}`, {
+  await fetch(`${BASE_API_URL}/api/views/${slug}`, {
     method: 'POST',
   }).then((response) => {
     console.log(response)
@@ -14,9 +14,13 @@ const BlogLayout = async ({ slug }:{slug:string}) => {
   });
   var ip = null;
 
-  await fetch(`${process.env.VERCEL_URL}`, {
+  await fetch(`${BASE_API_URL}/api/iptest`, {
     method: 'GET',
-  }).then((response) => {
+    next: {
+      revalidate: 0
+      
+    }
+  }, ).then((response) => {
     return response.json();
     
   }).then((data) => {
@@ -25,7 +29,7 @@ const BlogLayout = async ({ slug }:{slug:string}) => {
     console.log(ip)
 
   })
-  .catch((error): void => {
+  .catch((error) => {
     console.log(error)
   });
 
