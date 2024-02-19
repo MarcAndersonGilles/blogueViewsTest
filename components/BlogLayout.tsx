@@ -12,12 +12,27 @@ const BlogLayout = async ({ slug }:{slug:string}) => {
   }).catch((error) => {
     console.log(error)
   });
+  var ip = null;
+
+  await fetch(`http://localhost:3000/api/iptest`, {
+    method: 'GET',
+  }).then((response) => {
+    return response.json();
+    
+  }).then((data) => {
+  
+    ip = data.ip;
+    console.log(ip)
+
+  })
+  .catch((error) => {});
 
   return (
     <div>
       <div>
         <PageViews slug={slug} />
       </div>
+      <div className='text-black font-bold text-xl'>IP test : {ip}</div>
     </div>
   );
 };
