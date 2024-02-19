@@ -1,7 +1,7 @@
 "use server"
 import PageViews from './PageViews';
 import { BASE_API_URL } from '@/utils/utils-constants';
-
+import { headers } from "next/headers";
 
 const BlogLayout = async ({ slug }:{slug:string}) => {
  
@@ -16,22 +16,20 @@ const BlogLayout = async ({ slug }:{slug:string}) => {
 
   await fetch(`${BASE_API_URL}/api/iptest`, {
     method: 'GET',
-    next: {
-      revalidate: 0
-      
+    headers: Object.fromEntries(headers())
+  }).then((response) => {
+    if (response.ok) {
+      return response.json();
+    } else {
+      throw new Error('Failed to fetch IP');
     }
-  }, ).then((response) => {
-    return response.json();
-    
   }).then((data) => {
-  
     ip = data.ip;
-    console.log(ip)
-
-  })
-  .catch((error) => {
-    console.log(error)
+    console.log(ip);
+  }).catch((error) => {
+    console.error('Error fetching IP:', error);
   });
+  
 
   if(!BASE_API_URL){
     return null
