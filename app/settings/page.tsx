@@ -8,7 +8,7 @@ function page() {
                 <Link
                     href={'/'}
                 >
-                    <div className='text-black bg-white p-5'>Go back main page</div>
+                    <div className='text-black bg-white p-5'>Go back main page.</div>
                 </Link>
                 <div className='text-black bg-white p-5 '>PWA Setting</div>
             </div>
