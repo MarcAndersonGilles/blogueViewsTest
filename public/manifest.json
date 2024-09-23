@@ -1,5 +1,5 @@
 {
-  "name": "My App",
+  "name": "My App PWA",
   "id": "https://blogue-views-test.vercel.app/",
   "short_name": "App",
   "start_url": "/",
