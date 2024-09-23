@@ -1,0 +1,46 @@
+{
+  "name": "My App",
+  "id": "http://localhost:3000/",
+  "short_name": "App",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#ffffff",
+  "description": "My App description",
+  "screenshots": [
+    {
+      "src": "/demi.png",
+      "sizes": "1066x764",
+      "type": "image/png",
+      "form_factor": "wide",
+      "label": "Wonder Widgets"
+    },
+    {
+        "src": "/demi.png",
+        "sizes": "1066x764",
+        "type": "image/png",
+        "form_factor": "narrow",
+        "label": "Wonder Widgets"
+      }
+  
+  ],
+  "icons": [
+    {
+      "src": "/square.png",
+      "sizes": "24x24",
+      "type": "image/png",
+      "purpose": "any"
+    },
+    {
+        "src": "/square-icon.png",
+        "sizes": "512x512",
+        "type": "image/png",
+        "purpose": "any"
+      },
+    {
+        "src": "/star.png",
+        "sizes": "312x300",
+        "type": "image/png",
+        "purpose": "any"
+      }
+  ]
+}

@@ -18,6 +18,7 @@ const APP_DESCRIPTION = "Best PWA app in the world!";
 
 export const metadata: Metadata = {
   applicationName: APP_NAME,
+  manifest:'/manifest.json',
   title: {
     default: APP_DEFAULT_TITLE,
     template: APP_TITLE_TEMPLATE,
@@ -29,9 +30,9 @@ export const metadata: Metadata = {
     title: APP_DEFAULT_TITLE,
     // startUpImage: [],
   },
-  formatDetection: {
-    telephone: false,
-  },
+  // formatDetection: {
+  //   telephone: false,
+  // },
   openGraph: {
     type: "website",
     siteName: APP_NAME,
